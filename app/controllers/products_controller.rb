@@ -1,8 +1,12 @@
 class ProductsController < ApplicationController
   before_action :set_user, only: [ :new, :create ]
+  before_action :set_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @products = Product.all
+  end
+
+  def show
   end
 
   def new
@@ -20,11 +24,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
     @product.user = current_user
     @product.update(product_params)
 
@@ -32,7 +34,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     redirect_to product_path(@product.user)
   end
@@ -41,6 +42,10 @@ class ProductsController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   def product_params
