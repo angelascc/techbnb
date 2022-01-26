@@ -1,5 +1,6 @@
 <h1>Product: <%= @product.name %></h1>
 
+<%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
 <p>Description: <%= @product.description %></p>
 <p>Adress: <%= @product.address %></p>
 <p>City: <%= @product.city %></p>
