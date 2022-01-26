@@ -2,6 +2,6 @@
 
 <ul>
   <% @bookings.each do |booking| %>
-    <li><%= link_to booking.date, booking_requests_path %></li>
+    <li><%= link_to booking.date, booking_request_path(booking) %></li>
   <% end %>
 </ul>

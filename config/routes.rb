@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :booking_requests, only: [:new, :create]
   end
-  resources :booking_requests, only: [:index, :show, :edit, :update, :destroy]
+  resources :booking_requests, only: [:index, :show, :destroy]
+  get "/booking_requests/:id/accept", to: "booking_requests#accept", as: :accept_booking
 end

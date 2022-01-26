@@ -29,18 +29,19 @@ class BookingRequestsController < ApplicationController
   def destroy
     @booking = BookingRequest.find(params[:id])
     @booking.destroy
-    redirect_to booking_requestS_path(@booking.product)
+    redirect_to booking_requests_path(@booking.product)
   end
 
   def accept
-  end
-
-  def reject
+    @booking = BookingRequest.find(params[:id])
+    @booking.is_confirmed = true
+    @booking.save
+    redirect_to booking_request_path(@booking)
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking_request).permit(:date)
   end
 end

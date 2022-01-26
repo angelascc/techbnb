@@ -1,11 +1,11 @@
 <h1>My booking</h1>
-
-<ul class="list-group">
-  <% @booking.each do |booking| %>
-    <li class="list-group-item"><%= booking.product.name %></li>
-    <li class="list-group-item"><%= booking.user.first_name %></li>
-    <li class="list-group-item"><%= booking.date %></li>
-  <% end %>
+<ul>
+  <li class="list-group-item"><%= @booking.product.name %></li>
+  <li class="list-group-item"><%= @booking.user.email %></li>
+  <li class="list-group-item"><%= @booking.date %></li>
 </ul>
 
-<%= link_to 'See all my bookings', booking_requests_path %>
+
+<%= link_to 'See all my request', booking_requests_path %> |
+<%= link_to 'Accept request', accept_booking_path(@booking) %> |
+<%= link_to 'Reject request', booking_request_path(@booking), method: :delete, data: { confirm: "Are you sure?" } %>
