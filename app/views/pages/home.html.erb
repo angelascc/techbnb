@@ -7,6 +7,7 @@
       </button>
     </div>
   <% end %>
+</div>
 
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536584754829-12214d404f32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
     <div class="container">
@@ -15,10 +16,11 @@
     </div>
   </div>
 
+<div class="container">
   <div class="cards">
   <% Product.all.each do |product| %>
       <div class="card-category">
-        <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag product.photo.key, height: 300, width: 300, crop: :fill %>
         <div class="card-body">
         <h5 class="card-title"><%= link_to product.name, product_path(product) %></li></h5>
         <p class="card-text"><%= product.description %></li></p>
