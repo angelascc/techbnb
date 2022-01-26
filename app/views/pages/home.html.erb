@@ -1,75 +1,29 @@
 <div class="container">
-<%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-<% end %>
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  <% end %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536584754829-12214d404f32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
-  <div class="container">
-    <h1>Techbnb: <strong>los objetos tecnológicos</strong> que necesitas <strong>en tu viaje</strong>!</h1>
-    <p>¿Te olvidaste el cargador? ¡Alquila uno!</p>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536584754829-12214d404f32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+    <div class="container">
+      <h1>Techbnb: <strong>los objetos tecnológicos</strong> que necesitas <strong>en tu viaje</strong>!</h1>
+      <p>¿Te olvidaste el cargador? ¡Alquila uno!</p>
+    </div>
   </div>
-</div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col mb-3 mt-3">
-    <div class="card h-100">
-      <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Laptop</h5>
-        <p class="card-text">Para uso en webinars o cursos</p>
+  <div class="cards">
+  <% Product.all.each do |product| %>
+      <div class="card-category">
+        <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title"><%= link_to product.name, product_path(product) %></li></h5>
+        <p class="card-text"><%= product.description %></li></p>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  <div class="col mb-3 mt-3">
-    <div class="card h-100">
-      <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Cargador de celular</h5>
-        <p class="card-text">¡No te quedes sin batería!</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-3 mt-3">
-    <div class="card h-100">
-      <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Cámara Nikon</h5>
-        <p class="card-text">¿No tienes cámara para tu viaje? ¡Alquila la mía!</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-3 mt-3">
-    <div class="card h-100">
-      <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-3 mt-3">
-    <div class="card h-100">
-      <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-3 mt-3">
-    <div class="card h-100">
-      <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 </div>
