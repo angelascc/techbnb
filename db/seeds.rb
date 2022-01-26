@@ -10,11 +10,11 @@ require 'faker'
 puts 'Creating 10 fake products...'
 10.times do
   product = Product.new(
-    name: Faker::Camera.brand,
-    description: Faker::Camera.model,
+    name: Faker::Commerce.product_name,
+    description: Faker::Commerce.material,
     address: Faker::Address.street_address,
     city: Faker::Address.city,
-    price: Faker::Number.decimal(l_digits: 2)
+    price: Faker::Commerce.price
   )
   product.save!
 end
