@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   before_action :set_user, only: [ :new, :create]
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
 
