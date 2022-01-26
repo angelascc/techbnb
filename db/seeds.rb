@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Creating 10 fake products...'
+10.times do
+  product = Product.new(
+    name: Faker::Camera.brand,
+    description: Faker::Camera.model,
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    price: Faker::Number.decimal(l_digits: 2)
+  )
+  product.save!
+end
+
+puts 'Finished!'
+
+# "#{Faker::Address.street_address}, #{Faker::Address.city}",
+# rating: rand(0..5)
