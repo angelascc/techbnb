@@ -15,7 +15,9 @@ class BookingRequestsController < ApplicationController
   def create
     @booking = BookingRequest.new(booking_params)
     @product = Product.find(params[:product_id])
+    @user = current_user
     @booking.product = @product
+    @booking.user = @user
 
     if @booking.save
       redirect_to booking_request_path(@booking)
@@ -27,7 +29,7 @@ class BookingRequestsController < ApplicationController
   def destroy
     @booking = BookingRequest.find(params[:id])
     @booking.destroy
-    redirect_to product_path(@booking.product)
+    redirect_to booking_requestS_path(@booking.product)
   end
 
   def accept
@@ -39,6 +41,6 @@ class BookingRequestsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:product_id, :date)
+    params.require(:booking).permit(:date)
   end
 end
