@@ -4,3 +4,7 @@
 <p>Adress: <%= @product.address %></p>
 <p>City: <%= @product.city %></p>
 <p>Price: <%= @product.price %></p>
+
+
+<%= link_to 'Edit this product', edit_product_path(@product) %> |
+<%= link_to 'Back to list of products', products_path %>
