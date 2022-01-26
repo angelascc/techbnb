@@ -1,0 +1,9 @@
+<h1>My booking request</h1>
+
+<ul class="list-group">
+  <% @booking.reviews.each do |booking| %>
+    <li class="list-group-item"><%= booking.product.name %></li>
+    <li class="list-group-item"><%= booking.user.first_name %></li>
+    <li class="list-group-item"><%= booking.date %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<h1>My Booking Requests</h1>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= link_to booking.date, booking_requests_path %></li>
+  <% end %>
+</ul>
