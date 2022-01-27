@@ -5,14 +5,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @products = Product.geocoded
-
-    @markers = @products.map do |product|
-      {
-        lat: product.latitude,
-        lng: product.longitude
-      }
-    end
+    @products = Product.all
   end
 
   def search
