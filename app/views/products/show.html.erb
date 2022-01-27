@@ -6,6 +6,11 @@
 <p>City: <%= @product.city %></p>
 <p>Price: <%= @product.price %></p>
 
+<div id="map"
+     style="width: 100%; height: 500px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_TOKEN'] %>"></div>
+
 <%= link_to 'Edit this product', edit_product_path(@product) %> |
 <%= link_to 'Back to list of products', products_path %> |
 <%= link_to 'Rent this product', new_product_booking_request_path(@product) %> |
