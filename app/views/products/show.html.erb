@@ -2,7 +2,7 @@
   <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos mt-3 mb-3">
     <h1><strong><%= @product.name %></strong></h1>
-    <p><strong>Description: </strong><%= @product.description %></p>
+    <p id="description"><strong>Description: </strong><%= @product.description %></p>
     <p><strong>Adress: </strong><%= @product.address %></p>
     <p><strong>City: </strong><%= @product.city %></p>
     <p><strong>Price: </strong><%= @product.price %></p>
