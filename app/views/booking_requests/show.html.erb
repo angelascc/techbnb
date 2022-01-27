@@ -1,11 +1,19 @@
-<h1>My booking</h1>
-<ul>
-  <li class="list-group-item"><%= @booking.product.name %></li>
-  <li class="list-group-item"><%= @booking.user.email %></li>
-  <li class="list-group-item"><%= @booking.date %></li>
-</ul>
+<div class="card-booking">
+  <h1>My booking</h1>
 
+  <div class="cards">
+    <div class="card-trip">
+      <div class="card-trip-infos">
+        <h2><strong><%= @booking.product.name %></strong></h2>
+        <p>User: <%=  @booking.user.first_name %> <%= @booking.user.last_name %></p>
+        <p>Email: <%= @booking.user.email %></p>
+        <p>Address: <%= @booking.product.address %> -<%= @booking.product.city%> </p>
+        <p><%= @booking.date %></p>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'See all my request', booking_requests_path %> |
-<%= link_to 'Accept request', accept_booking_path(@booking) %> |
-<%= link_to 'Reject request', booking_request_path(@booking), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'See all my request', booking_requests_path, class: "btn btn-ghost" %>
+  <%= link_to 'Accept request', accept_booking_path(@booking), class: "btn btn-ghost" %>
+  <%= link_to 'Reject request', booking_request_path(@booking), class: "btn btn-ghost", method: :delete, data: { confirm: "Are you sure?" } %>
+</div>

@@ -1,13 +1,13 @@
-<%= link_to 'Create a new Product', new_product_path,class: "btn btn-ghost mt-3 ml-3"  %>
-<ul>
-  <% @products.each do |product| %>
-    <div class="card-index">
-      <%= cl_image_tag product.photo.key, height: 200, width: 300, crop: :fill %>
-      <div class="card-product-infos mt-3 mb-3">
-        <h2><strong><%= link_to product.name, product_path(product), class: "link-to-product" %></strong></h2>
-        <p><strong>Description: </strong><%= product.description %></p>
-        <p><strong>Price: </strong><%= product.price %></p>
-      </div>
+<div class= "container">
+<%= link_to 'Create a new Product', new_product_path,class: "btn btn-ghost mt-3"  %>
+<% @products.each do |product| %>
+  <div class="card-index">
+    <%= cl_image_tag product.photo.key, height: 200, width: 300, crop: :fill %>
+    <div class="card-product-infos mt-3 mb-3">
+      <h2><strong><%= link_to product.name, product_path(product), class: "link-to-product" %></strong></h2>
+      <p><strong>Description: </strong><%= product.description %></p>
+      <p><strong>Price: </strong><%= product.price %></p>
     </div>
-  <% end %>
-</ul>
+  </div>
+<% end %>
+</div>
