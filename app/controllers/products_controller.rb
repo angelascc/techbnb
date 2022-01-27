@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @products = Product.all
+    @products = policy_scope(Product).order(created_at: :desc)
   end
 
   def show
@@ -12,11 +12,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    authorize @product
     if @product.save
       redirect_to product_path(@product)
     else
@@ -29,9 +31,11 @@ class ProductsController < ApplicationController
 
   def update
     @product.user = current_user
-    @product.update(product_params)
-
-    redirect_to product_path(@product)
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -47,6 +51,7 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+    authorize :product
   end
 
   def product_params

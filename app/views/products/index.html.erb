@@ -3,8 +3,22 @@
 <ul>
   <% @products.each do |product| %>
     <li><%= link_to product.name, product_path(product) %></li>
+
+    <% if policy(product).show? %>
+    <%= link_to 'Show', product %>
+    <% end  %>
+
+    <% if policy(product).edit? %>
+    <%= link_to 'Edit', edit_product_path(product) %>
+    <% end  %>
+
+    <% if policy(product).destroy? %>
+    <%= link_to 'Destroy', product, method: :delete, data: { confirm: "Are you sure?" }  %>
+    <% end  %>
+    <% end  %>
   <% end %>
 </ul>
 
-
-<%= link_to 'Create a new Product', new_product_path %>
+<% if policy(Product).new? %>
+  <%= link_to 'New Product', new_product_path %>
+<% end  %>
