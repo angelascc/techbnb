@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   before_action :set_user, only: [ :new, :create]
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
@@ -36,7 +37,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to product_path(@product.user)
+    redirect_to products_path
   end
 
   private
