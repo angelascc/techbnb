@@ -9,8 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.near(params[:query], 10)
-
+    @products = Product.near(params[:query], 1000)
     @markers = @products.map do |product|
       {
         lat: product.latitude,
@@ -20,6 +19,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @markers = [{
+      lat: @product.latitude,
+      lng: @product.longitude
+    }]
   end
 
   def new
