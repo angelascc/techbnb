@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   resources :booking_requests, only: [:index, :show, :destroy]
   get "/booking_requests/:id/accept", to: "booking_requests#accept", as: :accept_booking
+  get "/search", to: "products#search"
 end

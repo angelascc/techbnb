@@ -32,6 +32,8 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+gem 'geocoder'
+
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
 gem 'dotenv-rails', groups: [:development, :test]
