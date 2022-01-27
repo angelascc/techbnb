@@ -8,4 +8,8 @@ class Product < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :price, presence: true
+  validates :photo, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_description, against: %i[name description], using: { tsearch: { prefix: true } }
 end

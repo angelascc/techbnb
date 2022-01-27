@@ -1,10 +1,15 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   before_action :set_user, only: [ :new, :create]
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @products = Product.all
+    if params[:query].present?
+      @products = Product.search_by_name_and_description(params[:query])
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -36,7 +41,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to product_path(@product.user)
+    redirect_to products_path
   end
 
   private
