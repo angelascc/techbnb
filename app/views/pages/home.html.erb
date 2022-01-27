@@ -20,7 +20,6 @@
         <%= cl_image_tag product.photo.key, height: 300, width: 300, crop: :fill %>
         <div class="card-trip-infos">
           <h2><%= link_to product.name, product_path(product) %></li></h2>
-          <p><%= product.description %></li></p>
           <h2>S/. <%= product.price %></li></h2>
         </div>
       </div>

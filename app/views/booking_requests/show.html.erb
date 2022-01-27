@@ -1,19 +1,19 @@
-<div class="card-booking">
-  <h1>My booking</h1>
-
-  <div class="cards">
-    <div class="card-trip">
-      <div class="card-trip-infos">
-        <h2><strong><%= @booking.product.name %></strong></h2>
-        <p>User: <%=  @booking.user.first_name %> <%= @booking.user.last_name %></p>
-        <p>Email: <%= @booking.user.email %></p>
-        <p>Address: <%= @booking.product.address %> -<%= @booking.product.city%> </p>
-        <p><%= @booking.date %></p>
+  <div class= "container-booking">
+    <h1><strong>My booking</strong></h1>
+    <div class="card-booking mb-3">
+      <div class="card-product-infos mt-3 mb-3 ml-3">
+            <h2><strong><%= @booking.product.name %></strong></h2>
+            <p>User: <%=  @booking.user.first_name %> <%= @booking.user.last_name %></p>
+            <p>Email: <%= @booking.user.email %></p>
+            <p>Address: <%= @booking.product.address %> -<%= @booking.product.city%> </p>
+            <p><%= @booking.date %></p>
       </div>
+      <%= cl_image_tag @booking.product.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
-  </div>
 
-  <%= link_to 'See all my request', booking_requests_path, class: "btn btn-ghost" %>
-  <%= link_to 'Accept request', accept_booking_path(@booking), class: "btn btn-ghost" %>
-  <%= link_to 'Reject request', booking_request_path(@booking), class: "btn btn-ghost", method: :delete, data: { confirm: "Are you sure?" } %>
+  <div>
+    <%= link_to 'See all my request', booking_requests_path, class: "btn btn-ghost" %>
+    <%= link_to 'Accept request', accept_booking_path(@booking), class: "btn btn-ghost" %>
+    <%= link_to 'Reject request', booking_request_path(@booking), class: "btn btn-ghost", method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
 </div>
