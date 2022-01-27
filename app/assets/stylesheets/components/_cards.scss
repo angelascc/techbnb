@@ -1,17 +1,51 @@
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  margin-top: 50px;
+  grid-gap: 25px;
+  margin: 20px 0px;
+  padding: 20px 0px;
   .card-category {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
-    border: 1px solid #a7a4a4;
-    border-radius: 4px;
-    width: 320px;
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+  .card-trip {
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 100%;
+    img {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+    h2 {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 0;
+    }
+    p {
+      font-size: 24px;
+      opacity: .7;
+      margin: 0;
+    }
+    .card-trip-infos {
+      padding: 16px;
+    }
   }
 }
+
+
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
