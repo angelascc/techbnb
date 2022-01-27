@@ -8,4 +8,5 @@ class Product < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :price, presence: true
+  validates :photo, presence: true
 end
