@@ -1,12 +1,15 @@
-<h1>Product: <%= @product.name %></h1>
+<div class="card-product">
+  <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-product-infos mt-3 mb-3">
+    <h1><strong><%= @product.name %></strong></h1>
+    <p><strong>Description: </strong><%= @product.description %></p>
+    <p><strong>Adress: </strong><%= @product.address %></p>
+    <p><strong>City: </strong><%= @product.city %></p>
+    <p><strong>Price: </strong><%= @product.price %></p>
 
-<%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
-<p>Description: <%= @product.description %></p>
-<p>Adress: <%= @product.address %></p>
-<p>City: <%= @product.city %></p>
-<p>Price: <%= @product.price %></p>
 
-
-<%= link_to 'Edit this product', edit_product_path(@product) %> |
-<%= link_to 'Back to list of products', products_path %> |
-<%= link_to 'Rent this product', new_product_booking_request_path(@product) %>
+    <%= link_to 'Edit this product', edit_product_path(@product), class: "btn btn-ghost mt-3 ml-3" %>
+    <%= link_to 'Back to list of products', products_path, class: "btn btn-ghost mt-3 ml-3"%>
+    <%= link_to 'Rent this product', new_product_booking_request_path(@product), class: "btn btn-ghost mt-3 ml-3" %>
+  </div>
+</div>
