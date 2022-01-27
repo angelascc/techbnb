@@ -6,13 +6,11 @@
     <p><strong>Adress: </strong><%= @product.address %></p>
     <p><strong>City: </strong><%= @product.city %></p>
     <p><strong>Price: </strong><%= @product.price %></p>
+
+    <%= link_to 'Edit', edit_product_path(@product) , class: "btn btn-ghost mt-3 ml-3"  %>
+    <%= link_to 'Delete', product_path(@product), class: "btn btn-ghost mt-3 ml-3" ,method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to 'Back', products_path, class: "btn btn-ghost mt-3 ml-3"  %>
+    <%= link_to 'Rent', new_product_booking_request_path(@product), class: "btn btn-flat mt-3 ml-3"  %>
+
   </div>
-
-
-
-<%= link_to 'Edit this product', edit_product_path(@product) %> |
-<%= link_to 'Back to list of products', products_path %> |
-<%= link_to 'Rent this product', new_product_booking_request_path(@product) %> |
-<%= link_to 'Delete product', product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %>
-  
 </div>
