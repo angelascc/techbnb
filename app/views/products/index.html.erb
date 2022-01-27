@@ -1,3 +1,4 @@
+<%= link_to 'Create a new Product', new_product_path,class: "btn btn-ghost mt-3 ml-3"  %>
 <ul>
   <% @products.each do |product| %>
     <div class="card-index">
@@ -10,5 +11,3 @@
     </div>
   <% end %>
 </ul>
-
-<%= link_to 'Create a new Product', new_product_path,class: "btn btn-ghost mt-3 ml-3"  %>
