@@ -1,6 +1,10 @@
-<h1>Edit my product: <%= @product.name %></h1>
+<div class= "container">
+  <div id="card_signup_edit">
+    <h1 class="mb-3">Edit my product: <%= @product.name %></h1>
 
-<%= render"form", product: @product %>
+    <%= render"form", product: @product %>
 
 
-<%= link_to 'Back to the product', product_path(@product) %>
+    <%= link_to 'Back to the product', product_path(@product) %>
+  </div>
+</div>
