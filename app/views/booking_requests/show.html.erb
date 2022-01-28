@@ -13,7 +13,7 @@
 
   <div>
 
-    <% if current_user.id == @booking.product.id%>
+    <% if current_user == @booking.product %>
       <%= link_to 'See all my request', booking_requests_path, class: "btn btn-ghost" %>
       <%= link_to 'Accept request', accept_booking_path(@booking), class: "btn btn-ghost" %>
       <%= link_to 'Reject request', booking_request_path(@booking), class: "btn btn-ghost", method: :delete, data: { confirm: "Are you sure?" } %>

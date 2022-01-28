@@ -1,5 +1,6 @@
 <h1>My Booking Requests</h1>
 <div class= "container">
+
 <% @bookings.each do |booking| %>
   <div class="card-index">
     <%= cl_image_tag booking.product.photo.key, height: 200, width: 400, crop: :fill %>
