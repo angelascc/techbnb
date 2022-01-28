@@ -1,5 +1,5 @@
 <div class= "container">
-<%= link_to 'Create a new Product', new_product_path,class: "btn btn-ghost mt-3"  %>
+<%= link_to 'Create a new Product', new_product_path,class: "btn btn-ghost mt-3 text-right"  %>
 <% @products.each do |product| %>
   <div class="card-index">
     <%= cl_image_tag product.photo.key, height: 200, width: 300, crop: :fill %>
