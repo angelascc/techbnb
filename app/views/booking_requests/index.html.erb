@@ -1,7 +1,14 @@
 <h1>My Booking Requests</h1>
-
-<ul>
-  <% @bookings.each do |booking| %>
-    <li><%= link_to booking.date, booking_request_path(booking) %></li>
-  <% end %>
-</ul>
+<div class= "container">
+<% @bookings.each do |booking| %>
+  <div class="card-index">
+    <%= cl_image_tag booking.product.photo.key, height: 200, width: 400, crop: :fill %>
+    <div class="card-product-infos mt-3 mb-3">
+      <h2><strong><%=link_to booking.product.name, booking_request_path(booking) %></strong></h2>
+            <p>Owner: <%=  booking.user.first_name %> <%= booking.user.last_name %></p>
+            <p>Address: <%= booking.product.address %> -<%= booking.product.city%> </p>
+            <p><%= booking.date %></p>
+    </div>
+  </div>
+<% end %>
+</div>
